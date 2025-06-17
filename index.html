@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M.O.B. Harley-Davidson Summer Ride</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="https://www.harley-davidson.com/etc.clientlibs/hd-dotcom/clientlibs/clientlib-base/resources/icons/favicon.ico" />
+  <script>
+    // Countdown Timer Script
+    document.addEventListener("DOMContentLoaded", function () {
+      const countdown = document.getElementById("countdown");
+      const eventDate = new Date("2025-07-10T00:00:00").getTime();
+
+      const updateCountdown = () => {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        if (distance < 0) {
+          countdown.innerHTML = "The ride has started!";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      };
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  </script>
+</head>
+<body class="bg-black text-white font-sans">
+  <header class="bg-orange-600 p-8 text-center">
+    <h1 class="text-4xl font-bold">M.O.B. Harley-Davidson Summer Ride</h1>
+    <p class="text-lg mt-2">Join us on the road this summer — July 10 to July 13, 2025</p>
+    <div class="mt-4 bg-black px-4 py-2 rounded text-orange-400 font-mono text-lg" id="countdown"></div>
+  
+  
+  </header>
+
+  <main class="p-6 max-w-2xl mx-auto">
+    <section class="bg-gray-900 p-6 rounded-xl shadow-xl">
+      <h2 class="text-2xl font-semibold mb-4">Sign Up to Ride</h2>
+      <form class="space-y-4" action="#" method="POST" onsubmit="event.preventDefault(); addAttendee();">
+        <div>
+          <label class="block text-sm font-medium mb-1">Full Name</label>
+          <input type="text" name="name" id="name" required class="w-full p-2 rounded bg-gray-800 border border-gray-600" />
+        </div>
+        <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded font-semibold">Join the Ride</button>
+      </form>
+    </section>
+
+    <section class="bg-gray-800 p-6 mt-8 rounded-xl shadow-xl">
+      <h2 class="text-2xl font-semibold mb-4">Who's Coming</h2>
+      <ul id="attendeeList" class="space-y-2 list-disc list-inside text-orange-300">
+        <!-- Attendees will be added here -->
+      </ul>
+    </section>
+
+    <section class="bg-gray-900 p-6 mt-8 rounded-xl shadow-xl">
+      <h2 class="text-2xl font-semibold mb-4">Local Bars & Taverns - Washington County, WI</h2>
+      <ul class="list-disc list-inside text-orange-300 space-y-2">
+        <li>MJ Stevens Pub 'N' Restaurant - Hartford</li>
+        <li>The Mineshaft - Hartford</li>
+        <li>Jug’s Hitching Post - West Bend</li>
+        <li>Riverside Brewery & Restaurant - West Bend</li>
+        <li>Schwai's Meat & Sausage Tavern - Fredonia</li>
+        <li>R-J’s Pub & Grill - Slinger</li>
+        <li>Down the Street Bar & Grill - West Bend</li>
+        <li>Jimmy’s North Star Tavern - Allenton</li>
+        <li>Slingers Saloon - Slinger</li>
+        <li>The Bunkhouse - Kewaskum</li>
+        <li>Bootleggers Bar - Germantown</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="text-center text-sm mt-10 mb-4 text-gray-400">
+    &copy; 2025 Harley-Davidson. All rights reserved.
+  </footer>
+
+  <script>
+    function addAttendee() {
+      const name = document.getElementById("name").value;
+      if (!name) return;
+
+      const list = document.getElementById("attendeeList");
+      const item = document.createElement("li");
+      item.textContent = name;
+      list.appendChild(item);
+
+      document.getElementById("name").value = "";
+    }
+  </script>
+</body>
+</html>
