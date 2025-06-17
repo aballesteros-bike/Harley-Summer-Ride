@@ -7,7 +7,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="https://www.harley-davidson.com/etc.clientlibs/hd-dotcom/clientlibs/clientlib-base/resources/icons/favicon.ico" />
   <script>
-    // Countdown Timer Script
     document.addEventListener("DOMContentLoaded", function () {
       const countdown = document.getElementById("countdown");
       const eventDate = new Date("2025-07-10T00:00:00").getTime();
@@ -46,51 +45,52 @@
       <h2 class="text-2xl font-semibold mb-2">Start Location - Adam's House</h2>
       <p class="text-orange-300"><a href="https://maps.google.com/?q=N115W19680+Woodland+Dr,+Germantown,+WI" target="_blank" class="underline text-orange-400 hover:text-orange-200">N115W19680 Woodland Dr, Germantown, WI</a></p>
     </section>
-    <section class="bg-gray-900 p-6 rounded-xl shadow-xl">
-      <h2 class="text-2xl font-semibold mb-4">Sign Up to Ride</h2>
-      <form class="space-y-4" action="https://formsubmit.co/adam@midwestpanel.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="thank-you.html">
-        <input type="hidden" name="_autoresponse" value="Thank you for signing up for the M.O.B. Harley-Davidson Summer Ride! We look forward to seeing you on the road.">
-        <div>
-          <label class="block text-sm font-medium mb-1">Full Name</label>
-          <input type="text" name="name" required class="w-full p-2 rounded bg-gray-800 border border-gray-600" />
-        </div>
-        <div>
-          <label class="block text-sm font-medium mb-1">Date & Time of Arrival</label>
-          <input type="datetime-local" name="arrival" required class="w-full p-2 rounded bg-gray-800 border border-gray-600" />
-        </div>
-        <div>
-          <label class="block text-sm font-medium mb-1">Length of Stay (in days)</label>
-          <input type="number" name="stay" min="1" required class="w-full p-2 rounded bg-gray-800 border border-gray-600" />
-        </div>
-        <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded font-semibold">Join the Ride</button>
-      </form>
+
+    <p class="text-orange-300 mb-4">An email will be sent to Adam after you sign up.</p>
+    <form class="space-y-4" action="https://formsubmit.co/adam@midwestpanel.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="thank-you.html">
+      <input type="hidden" name="_autoresponse" value="Thank you for signing up for the M.O.B. Harley-Davidson Summer Ride! We look forward to seeing you on the road.">
+      <div>
+        <label class="block text-sm font-medium mb-1">Full Name</label>
+        <input type="text" name="name" required class="w-full p-2 rounded bg-gray-800 border border-gray-600" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Date & Time of Arrival</label>
+        <input type="datetime-local" name="arrival" required class="w-full p-2 rounded bg-gray-800 border border-gray-600" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-1">Length of Stay (in days)</label>
+        <input type="number" name="stay" min="1" required class="w-full p-2 rounded bg-gray-800 border border-gray-600" />
+      </div>
+      <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded font-semibold">Join the Ride</button>
+    </form>
+
+    <section class="mt-10">
+      <label for="dealerships" class="block text-xl font-semibold mb-2 text-orange-400">Nearby Harley-Davidson Dealerships</label>
+      <select id="dealerships" class="w-full p-2 rounded bg-gray-800 border border-gray-600 text-white" onchange="if(this.value) window.open(this.value, '_blank')">
+        <option value="">Select a Dealership</option>
+        <option value="https://www.halshd.com/">Hal's Harley-Davidson (New Berlin, WI)</option>
+        <option value="https://www.houseofharley.com/">House of Harley-Davidson (Milwaukee, WI)</option>
+        <option value="https://www.suburbanharley.com/">Suburban Motors Harley-Davidson (Thiensville, WI)</option>
+        <option value="https://www.wisconsinharley.com/">Wisconsin Harley-Davidson (Oconomowoc, WI)</option>
+        <option value="https://www.johnsonsharleydavidson.com/">Johnson's Harley-Davidson (Union Grove, WI)</option>
+      </select>
     </section>
 
-    <section class="bg-gray-800 p-6 mt-8 rounded-xl shadow-xl">
-      <h2 class="text-2xl font-semibold mb-4">Who's Coming</h2>
-      <p class="text-orange-300">Check your email for confirmation after signup.</p>
-    </section>
-
-    <section class="bg-gray-900 p-6 mt-8 rounded-xl shadow-xl">
-      <h2 class="text-2xl font-semibold mb-4">Bars & Taverns in Washington County, WI</h2>
+    <section class="mt-10">
+      <h2 class="text-xl font-bold text-orange-400 mb-2">A Few of the Stops</h2>
       <ul class="list-disc list-inside text-orange-300">
-        <li><a href="https://www.facebook.com/AJOBartending/" target="_blank" class="underline">AJ O'Brady's</a> – Menomonee Falls</li>
-        <li><a href="https://www.ironridgeinn.com/" target="_blank" class="underline">Iron Ridge Inn</a> – Iron Ridge</li>
-        <li><a href="https://www.friestadtavern.com/" target="_blank" class="underline">Friestadt Tavern</a> – Mequon</li>
-        <li><a href="https://www.moccasinsaloon.com/" target="_blank" class="underline">Moccasin Bar</a> – West Bend</li>
-        <li><a href="https://thebentkeg.com/" target="_blank" class="underline">The Bent Keg</a> – Hartford</li>
-      </ul>
-    </section>
-
-    <section class="bg-gray-800 p-6 mt-8 rounded-xl shadow-xl">
-      <h2 class="text-2xl font-semibold mb-4">Live Music in Germantown (July 10–13, 2025)</h2>
-      <ul class="list-disc list-inside text-orange-300">
-        <li><strong>July 10:</strong> Germantown Summer Concert Series at Firemen’s Park</li>
-        <li><strong>July 11:</strong> Road Crew Band at Bub’s Irish Pub</li>
-        <li><strong>July 12:</strong> The Now at Essen Haus Biergarten</li>
-        <li><strong>July 13:</strong> Open Jam at Little Red Inn</li>
+        <li><a href="https://www.stollsolde109.com/" target="_blank" class="underline">Stoles Olde 109</a></li>
+        <li><a href="https://www.hollywoodsroadhouse.net/" target="_blank" class="underline">Hollywoods Road House</a></li>
+        <li><a href="https://www.facebook.com/BAHRTIME" target="_blank" class="underline">Bahr Time</a></li>
+        <li><a href="https://www.houseofheilemans.com/" target="_blank" class="underline">House of Heileman’s Tavern</a></li>
+        <li><a href="https://www.facebook.com/bigskyWI" target="_blank" class="underline">Big Sky Bar – Germantown</a></li>
+        <li><a href="https://www.facebook.com/BixenbergTavern/" target="_blank" class="underline">Bixenberg Tavern</a></li>
+        <li><a href="https://www.facebook.com/bildas" target="_blank" class="underline">Bilda’s Friess Lake Pub</a></li>
+        <li><a href="https://www.facebook.com/JoeMamasBarandGrill" target="_blank" class="underline">Joe Mama’s Bar & Grill – Colgate</a></li>
+        <li><a href="https://www.facebook.com/OldeCedarInn/" target="_blank" class="underline">Olde Cedar Inn</a></li>
+        <li><a href="https://www.facebook.com/dasbarrelroom/" target="_blank" class="underline">Das Barrel Room – Germantown</a></li>
       </ul>
     </section>
 
@@ -101,6 +101,16 @@
         <li><a href="https://www.harley-davidson.com/us/en/content/event-calendar/homecoming.html#music" target="_blank" class="underline">Concert & Music Lineup</a></li>
         <li><a href="https://www.harley-davidson.com/us/en/content/event-calendar/homecoming.html#tours" target="_blank" class="underline">Factory Tours & Activities</a></li>
         <li><a href="https://www.harley-davidson.com/us/en/content/event-calendar/homecoming.html#register" target="_blank" class="underline">Register & More Info</a></li>
+      </ul>
+    </section>
+
+    <section class="bg-gray-800 p-6 mt-8 rounded-xl shadow-xl">
+      <h2 class="text-2xl font-semibold mb-4 text-orange-400">Live Music Events Near Germantown, WI</h2>
+      <ul class="list-disc list-inside text-orange-300">
+        <li>July 10 – Bella Cain at Germantown Legion Hall</li>
+        <li>July 11 – The Toys at The Saloon on Calhoun, Brookfield</li>
+        <li>July 12 – Road Crew at AJ’s Bar & Grill, Muskego</li>
+        <li>July 13 – The Now at Shank Hall, Milwaukee</li>
       </ul>
     </section>
   </main>
