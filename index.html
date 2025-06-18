@@ -11,9 +11,39 @@
       list-style-type: square;
     }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(180deg, #111 0%, #000 100%);
+    }
+    h1, h2, h3 {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+    .custom-section {
+      border-left: 4px solid #f97316;
+      padding-left: 1rem;
+      background-color: #1f2937;
+      border-radius: 0.5rem;
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+    async function fetchWeather() {
+      try {
+        const apiKey = 'YOUR_API_KEY';
+        const zip = '53022';
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},US&appid=${apiKey}&units=imperial`);
+        const data = await response.json();
+        const icon = data.weather[0].icon;
+        const temp = Math.round(data.main.temp);
+        document.getElementById("weather").innerHTML = `
+          <img src="https://openweathermap.org/img/wn/${icon}.png" alt="Weather Icon" class="inline w-6 h-6" />
+          <span class="ml-2">${temp}°F</span>
+        `;
+      } catch (err) {
+        document.getElementById("weather").textContent = "Weather unavailable";
+      }
+    }
+    window.onload = fetchWeather;
+  </script>
 </head>
 <body class="bg-black text-white font-sans relative">
   <!-- Side Banners -->
@@ -27,6 +57,7 @@
   <header class="bg-orange-600 p-8 text-center relative">
     <h1 class="text-4xl font-bold">M.O.B. Harley-Davidson Summer Ride</h1>
     <p class="text-lg mt-2">Join us on the road this summer — July 10 to July 13, 2025</p>
+    <div id="weather" class="absolute top-4 right-6 text-white text-sm flex items-center"></div>
   </header>
 
   <div class="bg-gray-900 text-center p-4 text-xl font-semibold text-orange-400" id="countdown">
@@ -55,8 +86,8 @@
     setInterval(countdown, 1000);
   </script>
 
-  <main class="p-6 max-w-2xl mx-auto">
-    <section class="my-8">
+  <main class="p-6 max-w-2xl mx-auto space-y-12">
+    <section class="custom-section">
       <h2 class="text-2xl font-bold text-orange-400 mb-2">A Few of the Stops</h2>
       <ul class="custom-bullets pl-6 space-y-1">
         <li><a href="https://www.houseofheilemans.com/" class="text-orange-300 hover:underline" target="_blank">House of Heileman's Tavern</a></li>
@@ -71,7 +102,7 @@
       </ul>
     </section>
 
-    <section class="my-8">
+    <section class="custom-section">
       <h2 class="text-2xl font-bold text-orange-400 mb-2">Harley Dealerships Near Milwaukee, WI</h2>
       <ul class="custom-bullets pl-6 space-y-1">
         <li><a href="https://www.halshd.com/" class="text-orange-300 hover:underline" target="_blank">Hal's Harley-Davidson</a></li>
@@ -81,7 +112,16 @@
       </ul>
     </section>
 
-    <section class="my-8">
+    <section class="custom-section">
+      <h2 class="text-2xl font-bold text-orange-400 mb-2">Harley Homecoming 2025 Events</h2>
+      <ul class="custom-bullets pl-6 space-y-1 text-orange-300">
+        <li><a href="https://www.harley-davidson.com/us/en/content/event-calendar/homecoming.html" class="hover:underline" target="_blank">Official Harley-Davidson Homecoming Page</a></li>
+        <li><a href="https://www.harley-davidson.com/us/en/content/event-calendar/homecoming/experiences.html" class="hover:underline" target="_blank">Homecoming Experiences</a></li>
+        <li><a href="https://www.harley-davidson.com/us/en/content/event-calendar/homecoming/schedule.html" class="hover:underline" target="_blank">Full Schedule of Events</a></li>
+      </ul>
+    </section>
+
+    <section class="custom-section">
       <h2 class="text-2xl font-bold text-orange-400 mb-2">Live Music Events Near Germantown (July 10–13, 2025)</h2>
       <ul class="custom-bullets pl-6 text-orange-300 space-y-1">
         <li>July 10 - Live Band @ Bilda's Friess Lake</li>
@@ -91,18 +131,7 @@
       </ul>
     </section>
 
-    <section class="my-8">
-      <h2 class="text-2xl font-bold text-orange-400 mb-2">Ride Signup</h2>
-      <form class="space-y-4" method="POST" action="#">
-        <input type="text" name="name" placeholder="Your Name" required class="w-full p-2 rounded bg-gray-800 text-white" />
-        <input type="email" name="email" placeholder="Email" required class="w-full p-2 rounded bg-gray-800 text-white" />
-        <input type="date" name="arrival" required class="w-full p-2 rounded bg-gray-800 text-white" />
-        <button type="submit" class="bg-orange-600 hover:bg-orange-700 px-4 py-2 rounded text-white">Sign Up</button>
-        <p class="text-sm text-orange-400 mt-2">A confirmation email will be sent to the event organizer after you sign up.</p>
-      </form>
-    </section>
-
-    <section class="my-8">
+    <section class="custom-section">
       <h2 class="text-2xl font-bold text-orange-400 mb-2">Start Location</h2>
       <p class="text-lg">Adam's House — <a href="https://maps.google.com/?q=N115W19680+Woodland+Dr,+Germantown,+WI" target="_blank" class="text-orange-300 hover:underline">N115W19680 Woodland Dr, Germantown, WI</a></p>
     </section>
